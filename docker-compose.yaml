@@ -1,0 +1,23 @@
+# Docker
+services:
+    npm_webserver:
+        container_name: npm_web
+        image: flask:latest
+        tty: true
+        stdin_open: true
+        volumes:
+            - ./apka:/var/www/html/app
+        working_dir: /var/www/html/app
+        ports:
+            - '3000:3000'
+        environment:
+            - FLASK_APP=flask_host.py
+            - FLASK_ENV=development
+        # depends_on:
+        #   - npm_mongo
+        entrypoint: ['/bin/sh', 'flask run']
+        # entrypoint: /bin/bash -c "npm install && npm init @vitejs/app && npm start"
+    # npm_mongo:
+    #   image: mongo:latest
+    #   ports:
+    #     - "27017:27017"
