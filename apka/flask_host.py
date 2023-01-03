@@ -5,7 +5,14 @@ from datetime import datetime
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+# This is for local testing
+app.config.from_pyfile('config/debug_environment.cfg')
+
+# This will be for docker-compose
+# app.config.from_envvar('CONFIGURATION_FILE')
+app.config.update(
+        CORS_Headers='Content-Type',
+)
 
 # if run from command line as python flask_host.py
 def main():
