@@ -1,4 +1,5 @@
 **/vscode
+**/vscode/**
 **/vscode-test
 **/vscode-ripgrep
 **/node_modules
