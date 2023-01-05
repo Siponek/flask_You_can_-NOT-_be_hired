@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewprot" content="widtd=device-width, initial-scale=1.0" />
-        <title>Feel that? Google engineer material</title>
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename= 'css/style.css') }}"
-        />
-        <script
-            src="{{ url_for('static', filename= 'js/main.js') }}"
-            defer=""
-        ></script>
-        <script
-            src="{{ url_for('static', filename= 'js/index.js') }}"
-            defer=""
-        ></script>
-    </head>
-
-    <body>
-        <h1>Witaj świecie</h1>
-        <p>A tutaj jest obecny czas :> {{ utc_dc }}</p>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+  Child page
+{% endblock title %}
+{% block html_head %}
+  <style type="text/css">
+    .important {
+      color: #336699;
+    }
+  </style>
+{% endblock html_head %}
+{% block content %}
+  <h1>Jak powiedzieć rodzicom, że jest się gejem?</h1>
+  <p>A tutaj jest obecny czas :> {{ utc_dc }}</p>
+{% endblock content %}
