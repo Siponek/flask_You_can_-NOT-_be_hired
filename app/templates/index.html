@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}
+  Blog dla webdevów
+{% endblock title
+ %}
+ 
+{% block html_head %}
+ 
+{% endblock html_head %}
+{# comment To jest div id-=
+content #}
+{% block body %}
+  <header>
+    <h1>Blog dla webdevów</h1>
+    {# Lub button. # przenosi na top strony #}
+    <a href="#">Kup teraz</a>
+  </header>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Start</a>
+      </li>
+      <li>
+        <a href="offer.html">Akutalności</a>
+      </li>
+      <li>
+        <a href="news.html">Oferta</a>
+      </li>
+      <li>
+        <a href="contact.html">Kontakt</a>
+      </li>
+    </ul>
+  </nav>
+ 
+  <main>
+    <article>
+      <h1>Tytuł artykułu</h1>
+      <img src="image.png" alt="samochód" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, facere?
+        Ipsa, deleniti repellendus voluptate, voluptatibus maiores inventore ex
+        ducimus facilis iusto obcaecati nihil nostrum iure eligendi. Quam atque
+        voluptas dolorem?
+        <a href="article_1.html">Czytaj więcej</a>
+      </p>
+    </article>
+    <article>
+      <h1>Tytuł artykułu</h1>
+      <img src="image.png" alt="samochód" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, facere?
+        Ipsa, deleniti repellendus voluptate, voluptatibus maiores inventore ex
+        ducimus facilis iusto obcaecati nihil nostrum iure eligendi. Quam atque
+        voluptas dolorem?
+        <a href="article_1.html">Czytaj więcej</a>
+      </p>
+    </article>
+    <article>
+      <h1>Tytuł artykułu</h1>
+      <img src="image.png" alt="samochód" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, facere?
+        Ipsa, deleniti repellendus voluptate, voluptatibus maiores inventore ex
+        ducimus facilis iusto obcaecati nihil nostrum iure eligendi. Quam atque
+        voluptas dolorem?
+        <a href="article_1.html">Czytaj więcej</a>
+      </p>
+    </article>
+  </main>
+  <aside>
+  </aside>
+  <section>
+    <a href="#">
+      <p>LinkA</p>
+      <img src="art_1.jpg" alt="Link do zewnętrznego artykułu">
+    </a>
+    <a href="#">
+      <p>LinkB</p>
+      <img src="art_2.jpg" alt="Link do zewnętrznego artykułu">
+    </a>
+    <a href="#">
+      <p>LinkC</p>
+      <img src="art_3.jpg" alt="Link do zewnętrznego artykułu">
+    </a>
+  </section>
+  {% block footer %}
+    <p>&copy;Stópka</p>
+  {% endblock footer %}
+{% endblock body %}

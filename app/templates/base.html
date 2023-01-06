@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,16 +13,16 @@
     {% block html_head %}
     {% endblock html_head %}
   </head>
-  <body>
-    <div id="content">
-      {% block content %}
-      {% endblock content %}
-    </div>
-    <footer id="footer">
-      {% block footer %}
-        &copy; Copyright 2022 by
-        <a href="https://github.com/Siponek">Siponek</a>.
-      {% endblock footer %}
-    </footer>
-  </body>
+  {% block body %}
+    <body>
+      <div id="content">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      <footer id="footer">
+        {% block footer %}
+        {% endblock footer %}
+      </footer>
+    </body>
+  {% endblock body %}
 </html>
