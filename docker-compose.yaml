@@ -13,7 +13,7 @@ services:
         ports:
             - '80:80'
         environment:
-            - FLASK_APP=/var/www/html/app/main.py
+            - FLASK_APP=/app/main.py
             - FLASK_DEBUG=1
             - STATIC_URL=/static
             - STATIC_PATH=/var/www/html/app/static

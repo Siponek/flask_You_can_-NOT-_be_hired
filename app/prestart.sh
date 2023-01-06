@@ -1,0 +1,2 @@
+echo pwd
+ls -la
