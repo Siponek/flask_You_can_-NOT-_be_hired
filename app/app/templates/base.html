@@ -2,10 +2,19 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author"  content="Siponek Zimmermich" />
+    <meta name="description"
+          content="Może nie najlepszy, ale za to najdroższy, zdystansowany blog dla frątasiów i bakusiów"/>
+    <meta name="keywords" content="web, strony internetowe, komedia, dramat  "/>
     <meta name="viewprot" content="widtd=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
           href="{{ url_for('static', filename= 'css/style.css') }}"/>
+ 
+    {# comment Import additional fonts to head#}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=latin-ext"
+          rel="stylesheet"/>
     <title>
       {% block title %}
       {% endblock title %}
