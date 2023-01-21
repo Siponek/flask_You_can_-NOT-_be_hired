@@ -4,8 +4,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \ 
     nano \
     && rm -rf /var/lib/apt/lists/*
-ENV STATIC_URL /static
-ENV STATIC_PATH /var/www/html/app/static
-COPY requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
+ARG APP_FOLDER
+COPY $APP_FOLDER $APP_FOLDER
 COPY ./app /app
+WORKDIR $APP_FOLDER
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt

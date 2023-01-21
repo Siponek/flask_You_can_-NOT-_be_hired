@@ -9,7 +9,7 @@ Add cool icons XD
 <!-- [![Build Status](https://travis-ci.org/rodrigobdz/prettier-makefile.svg?branch=master)](11) -->
 
 ## Dependencies
-
+<!-- Creating variables -->
 [pettier_link]: https://prettier.io/docs/en/install.html
 [make_link]: https://www.gnu.org/software/make/
 [docker_link]: https://docs.docker.com/install/

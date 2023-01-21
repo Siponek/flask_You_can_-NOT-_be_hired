@@ -8,10 +8,10 @@ flask:
 
 .PHONY: up
 up:
-	docker compose up
+	docker compose --env-file docker.env up
 .PHONY: build
 build:
-	docker compose build
+	docker compose --env-file docker.env build
 
 .PHONY: run
 run:
