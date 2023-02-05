@@ -3,14 +3,17 @@ services:
     flask_nginx_webserver:
         container_name: flask_nginx
         build:
-            dockerfile: dockerfile
+            context: ../
+            dockerfile: ./docker/dockerfile
             args:
                 APP_FOLDER: ${APP_FOLDER}
+        # docker run -i
         tty: true
+        # docker run -t
         stdin_open: true
         volumes:
-            - .${APP_FOLDER}:${APP_FOLDER}
+            - ./../${APP_FOLDER}:${APP_FOLDER}
         ports:
-            - '80:80'
+            - 80:80
         env_file:
-            - docker.env
+            - ./../env/docker.env
