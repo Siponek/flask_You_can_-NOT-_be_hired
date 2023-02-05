@@ -14,6 +14,6 @@ services:
         volumes:
             - ./../${APP_FOLDER}:${APP_FOLDER}
         ports:
-            - 80:80
+            - ${LISTEN_PORT}:${LISTEN_PORT}
         env_file:
             - ./../env/docker.env
