@@ -3,17 +3,15 @@ services:
     flask_nginx_webserver:
         container_name: flask_nginx
         build:
-            dockerfile: dockerfile
+            context: ./../
+            dockerfile: ./docker/dockerfile
         tty: true
         stdin_open: true
         volumes:
-            - ./app:/app
+            - ./../app:/app
             # - ./app:/var/www/html/app
         # working_dir: /var/www/html/app
         ports:
             - '80:80'
-        environment:
-            - FLASK_APP=/app/main.py
-            - FLASK_DEBUG=1
-            - STATIC_URL=/static
-            - STATIC_PATH=/var/www/html/app/static
+        env_file:
+            - ../env/flask.env

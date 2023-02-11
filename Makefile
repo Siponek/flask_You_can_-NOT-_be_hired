@@ -1,3 +1,12 @@
+#
+#? Settings and Variables (Works for windows 11)
+#? CURDIR is the directory of the Makefile, even if it is called from a subdirectory with make -C
+#
+ENV_FILE := $(CURDIR)/env/flask.env
+DOCKER_COMPOSE_FILE := $(CURDIR)/docker/docker-compose.yaml
+DOCKER_FLAGS := --file $(DOCKER_COMPOSE_FILE) --env-file $(ENV_FILE)
+DOCKER_COMPOSE := docker compose $(DOCKER_FLAGS)
+
 
 .PHONY: .ONESHELL
 .ONESHELL:
@@ -8,19 +17,17 @@ flask:
 
 .PHONY: up
 up:
-	docker compose up
+	$(DOCKER_COMPOSE) up
+
 .PHONY: build
 build:
-	docker compose build
-
-.PHONY: run
-run:
-	docker compose run 
+	$(DOCKER_COMPOSE) build
 
 .PHONY: down
 down:
-	docker compose down
+	$(DOCKER_COMPOSE) down
+
 .PHONY: clean
 clean:
-	docker compose down --remove-orphans --volumes
+	$(DOCKER_COMPOSE) down --remove-orphans --volumes
 
