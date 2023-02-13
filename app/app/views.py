@@ -28,6 +28,11 @@ def index():
 def web_21():
     return render_template(template_name_or_list='web_21.html')
 
+@app.route("/day4", methods=['GET'])
+def day4():
+    return render_template(template_name_or_list='day4.html')
+
+
 @app.route('/get_fifa_data', methods=['GET'])
 def get_fifa_data():
     def wololo():
