@@ -31,7 +31,7 @@ local-dev: update-venv
 .PHONY: update-venv
 update-venv: venv
 	python -m pip install --upgrade pip
-	python -m pip install -r requirements.txt
+	python -m pip install -r ./flask_app/requirements.txt
 
 .PHONY: venv
 venv:
@@ -56,4 +56,8 @@ down:
 .PHONY: clean
 clean:
 	$(DOCKER_COMPOSE) down --remove-orphans --volumes
+
+.PHONY: launch
+launch:
+	$(DOCKER_COMPOSE) up --build --scale flask_application=2
 

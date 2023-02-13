@@ -28,21 +28,25 @@ def main():
     )
 
 
-# @app.errorhandler(HTTPException)
-# def handle_exception(e):
-#     """Return JSON instead of HTML for HTTP errors."""
-#     # start with the correct headers and status code from the error
-#     response = e.get_response()
-#     # replace the body with JSON
-#     response.data = json.dumps(
-#         {
-#             "code": e.code,
-#             "name": e.name,
-#             "description": e.description,
-#         }
-#     )
-#     response.content_type = "application/json"
-#     return response
+@app.errorhandler(HTTPException)
+def handle_exception(e):
+    """Return JSON instead of HTML for HTTP errors."""
+    # start with the correct headers and status code from the error
+    response = e.get_response()
+    # replace the body with JSON
+    response.data = json.dumps(
+        {
+            "code": e.code,
+            "name": e.name,
+            "description": e.description,
+        }
+    )
+    response.content_type = "application/json"
+    return response
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return 'This route does not exist {}'.format(request.url), 404
 
 
 @app.route("/", strict_slashes=False, methods=["GET"])
@@ -80,6 +84,9 @@ def get_fifa_data():
 
     return jsonify({"data": "fifa data"})
 
+@app.route('/ping')
+def ping():
+    return 'PONG', 200
 
 if __name__ == "__main__":
     main()

@@ -1,20 +1,47 @@
-version: '3'
+version: '3.7'
 services:
-    flask_nginx_webserver:
-        container_name: flask_nginx
+    flask_application:
         restart: 'unless-stopped'
         build:
             context: ../
-            dockerfile: ./docker/dockerfile
+            dockerfile: ./docker/flask.dockerfile
             args:
-                APP_FOLDER: ${APP_FOLDER}
+                - APP_FOLDER=${APP_FOLDER}
+        labels:
+            com.example.description: 'Running flask application!'
+            com.example.department: 'IT-sort-of'
+            com.example.label-with-empty-value: ''
         # docker run -i
         tty: true
         # docker run -t
         stdin_open: true
         volumes:
             - ./../${APP_FOLDER}:${APP_FOLDER}
-        ports:
-            - ${LISTEN_PORT}:${LISTEN_PORT}
+        expose:
+            - ${LISTEN_PORT_FLASK}
         env_file:
             - ./../env/docker.env
+        command: flask run --host=0.0.0.0
+        networks:
+            - nginx_network
+
+    nginx_load_balancer:
+        container_name: nginx
+        restart: 'unless-stopped'
+        build:
+            context: ../
+            dockerfile: ./docker/nginx.dockerfile
+        volumes:
+            - ./../${APP_FOLDER}:${APP_FOLDER}
+            - ./../nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - ${LISTEN_NGINX_PORT}:${LISTEN_NGINX_PORT}
+        env_file:
+            - ./../env/docker.env
+        depends_on:
+            - flask_application
+        networks:
+            - nginx_network
+networks:
+    nginx_network:
+        driver: bridge
