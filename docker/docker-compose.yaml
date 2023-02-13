@@ -2,6 +2,7 @@ version: '3'
 services:
     flask_nginx_webserver:
         container_name: flask_nginx
+        restart: 'unless-stopped'
         build:
             context: ./../
             dockerfile: ./docker/dockerfile
