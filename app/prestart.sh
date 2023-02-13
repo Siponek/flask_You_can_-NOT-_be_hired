@@ -1,2 +1,3 @@
-echo "Say hello to flask-NGINX-Docker web app! Don't forget, don't do drugs and don't drink, and drive!"
-ls -la
+echo "###############################################################"
+echo "I am telling you, two years as developer and then become menago"
+echo "###############################################################"

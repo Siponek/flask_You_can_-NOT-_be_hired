@@ -1,0 +1,47 @@
+/* Path: application\app\static\css\style.css */
+
+/* * Reset Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
+h1 {
+    border: 2px #eee solid;
+    color: brown;
+    text-align: center;
+    padding: 10px;
+}
+
+moo_paragraf {
+    color: #333;
+    border: 10px #eee solid;
+    font-size: 1.2em;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px;
+}
+section+p {
+    color: rgb(12, 177, 31);
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+}
+.test {
+    color: tomato;
+    font-size: 20px;
+}
+p.test {
+    font-size: 40px;
+    background-color: aquamarine;
+}
+
