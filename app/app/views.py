@@ -24,21 +24,6 @@ def main():
 def index():
     return render_template(template_name_or_list='index.html',utc_dc= datetime.utcnow())
 
-@app.route("/web_21", methods=['GET'])
-def web_21():
-    return render_template(template_name_or_list='web_21.html')
-
-@app.route("/day4", methods=['GET'])
-def day4():
-    return render_template(template_name_or_list='day4.html')
-
-
-@app.route('/get_fifa_data', methods=['GET'])
-def get_fifa_data():
-    def wololo():
-        return 'wololo'
-    return jsonify({'data': 'fifa data'})
-
 
 if __name__ == '__main__':
     main()
